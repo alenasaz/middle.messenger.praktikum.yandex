@@ -1,0 +1,19 @@
+---
+id: "root" 
+---
+<html>
+    <head>
+        <script src="src/index.js" type="module"></script>
+    </head>
+    <body>
+        {{#extend "base_layout"}}
+           {{#content "main"}}
+        <main>
+            <div>
+                <p><a href=".src/pages/notFound.hbs">404</a></p>
+            </div>
+        </main>
+           {{/content}}
+       {{/extend}}
+    </body>
+</html> 
