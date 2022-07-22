@@ -11,7 +11,7 @@ import {
 
 import routesPage from "./pages/routes/routes";
 import loginPage from "./pages/login/login";
-import notFoundPage from "./pages/error/NotFound";
+import notFoundPage from "./pages/error/notFound";
 import errorPage from "./pages/error/error";
 import chatPage from "./pages/chats/chatPage";
 import changePasswordPage from "./pages/changePassword/changePassword";
