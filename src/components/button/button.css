@@ -1,0 +1,12 @@
+.button-primary {
+    padding: 14px 40px;
+    border-radius: 7px;
+    background-color: blue;
+    border: 0;
+    font-size: 16px;
+    color: white;
+}
+
+.button-primary:active {
+    opacity: 0.75;
+}

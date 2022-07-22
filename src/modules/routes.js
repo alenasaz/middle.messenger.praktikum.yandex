@@ -1,0 +1,10 @@
+export const ROUTES_PAGE = "/";
+export const LOGIN = "/login";
+export const REGISTER = "/register";
+export const NOT_FOUND = "/not_found";
+export const ERROR = "/error";
+export const CHAT = "/chats";
+export const SETTINGS = "/settings";
+//export const CHANGE_AVATAR = "/changeAvatar";
+export const CHANGE_PASSWORD = "/change_password";
+export const PROFILE = "/profile";
