@@ -4,22 +4,24 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "parcel src/pages/notFound/notFound.hbs",
-        "build": "parcel src/pages/notFound/notFound.hbs"
+        "dev": "parcel index.html",
+        "build": "parcel index.html"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "handlebars": "^4.7.7"
+        "handlebars": "^4.7.7",
+        "postcss": "^8.4.14"
     },
     "devDependencies": {
         "@anikin/parcel-transformer-handlebars": "^1.0.9",
+        "@parcel/transformer-sass": "^2.6.2",
         "express": "^4.18.1",
         "parcel": "^2.6.2",
         "parcel-transformer-hbs": "^1.0.4"
     },
     "engines": {
-        "node": "12.0.0"
+        "node": "^12.0.0"
     }
 }
