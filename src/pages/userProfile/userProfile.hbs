@@ -1,0 +1,49 @@
+     <main class="container">
+        <div class="user_data">
+            <button class="button-change">
+                Поменять аватар
+            </button>
+            <img class="photo"   src="{{imageSrc}}" />
+            <p class="name">{{first_name}}</p>
+            <button class="exit">Выйти</button>
+        </div>
+        <form class="form_profile>
+            <div class="wrapper">
+            <label class="label-profile" for="email">
+            Почта
+            {{> text name="Почта" currentValue="pochta@gmail.ru" fieldName="email" }}
+        </label>
+        </div>
+            <label class="label-profile" for="login">
+            Логин
+             {{> text name="Логин" currentValue="ivanivanov" fieldName="login" }}
+        </label>
+        <label class="label-profile" for="first_name">
+            Имя
+             {{> text name="Имя" currentValue="Иван" fieldName="first_name" }}
+        </label>  
+         <label class="label-profile" for="second_name">
+            Фамилия
+            {{> text name="Фамилия" currentValue="Иванов" fieldName="second_name" }}
+        </label>
+        <label class="label-profile" for="display_name">
+            Имя в чате
+            {{> text name="Имя в чате" currentValue="Иван" fieldName="display_name" }}
+        </label>
+        <label class="label-profile" for="phone">
+            Телефон
+            {{> text name="Телефон" currentValue="7(903)-967-30-30" fieldName="phone" }}
+        </label>
+            
+
+            <div class='button-wrapper'>
+                <a class="link" href="/button-change-password">Изменить пароль</a>
+                <a class="link" href="/button-change-password">Изменить данные</a>
+            </div>
+        </form>
+       <div class='button-wrapper'>
+           {{> button }}
+        </div>
+        </main>
+
+    

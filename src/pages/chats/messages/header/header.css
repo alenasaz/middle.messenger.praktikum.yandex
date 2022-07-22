@@ -1,0 +1,42 @@
+.messages-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+}
+
+.messages-header__person {
+        width: 90%;
+        height: 32px;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+ .messages-header__person-photo {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+        }
+ .messages-header__person-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+.messages-header__person-name {
+                font-size: 16px;
+ }
+
+ .messages-header__person-status {
+                font-size: 12px;
+                color: grey;
+ }
+
+.messages-header__menu {
+        border: none;
+        background-color: transparent;
+    }
+.messages-header__menu-icon {
+            height: 28px;
+        }
