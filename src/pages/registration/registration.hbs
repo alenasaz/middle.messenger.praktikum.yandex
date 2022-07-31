@@ -1,0 +1,20 @@
+     <form class="form">
+    <h1 class='login-title'>{{title}}</h1>
+    <label class="label-text" for="email">Почта</label>
+    {{> input name="email" placeholder="Почта" type="email" }}
+    <label class="label-text" for="login">Логин</label>
+    {{> input name="login" placeholder="Логин" type="text" }}
+    <label class="label-text" for="first_name">Имя</label>
+    {{> input name="first_name" placeholder="Имя" type="text" }}
+    <label class="label-text" for="second_name">Фамилия</label>
+    {{> input name="second_name" placeholder="Фамилия" type="text" }}
+    <label class="label-text" for="phone">Телефон</label>
+    {{> input name="phone" placeholder="Телефон" type="text" }}
+    <label class="label-text" for="password">Пароль</label>
+    {{> input name="password" placeholder="Пароль" type="password" }}
+    <label class="label-text" for="passwordConfirm">Пароль (ещё раз)</label>
+    {{> input name="password_repeat" placeholder="Пароль (ещё раз)" type="password" }}
+    <div class='button-wrapper'>
+    {{> button }}
+    </div>
+    </form>
