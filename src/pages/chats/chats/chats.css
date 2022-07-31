@@ -17,7 +17,7 @@
             border-radius: 50%;
         }
 
-        .last-messege{
+        .last-message{
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;

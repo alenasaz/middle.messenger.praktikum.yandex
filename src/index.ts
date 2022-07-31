@@ -7,7 +7,7 @@ import {
   CHAT,
   PROFILE,
   CHANGE_PASSWORD,
-} from "../src/modules/routes";
+} from "./modules/routes";
 
 import routesPage from "./pages/routes/routes";
 import loginPage from "./pages/login/login";
