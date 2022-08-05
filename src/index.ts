@@ -4,30 +4,30 @@ import {
   REGISTER,
   ERROR,
   NOT_FOUND,
-  CHAT,
+  // CHAT,
   PROFILE,
   CHANGE_PASSWORD,
-} from "./modules/routes";
-
-import routesPage from "./pages/routes/routes";
-import loginPage from "./pages/login/login";
-import notFoundPage from "./pages/error/notFound";
-import errorPage from "./pages/error/error";
-import chatPage from "./pages/chats/chatPage";
-import changePasswordPage from "./pages/changePassword/changePassword";
-import profilePage from "./pages/userProfile/userProfile";
-import registrationPage from "./pages/registration/registration";
+} from './modules/routes';
+import render from './utils/RenderDom';
+import routesPage from './pages/routes/routes';
+import PageLogin from './pages/login/login.ts';
+import PageNotFound from './pages/error/notFound.ts';
+import PageErorr from './pages/error/error.ts';
+// import chatPage from "./pages/chats/chatPage";
+import PageChangePassword from './pages/changePassword/changePassword.ts';
+import PageUserProfile from "./pages/userProfile/userProfile.ts";
+import PageRegistration from "./pages/registration/registration.ts";
 
 const routes = {
   [ROUTES_PAGE]: routesPage,
-  [LOGIN]: loginPage,
-  [PROFILE]: profilePage,
-  [NOT_FOUND]: notFoundPage,
-  [ERROR]: errorPage,
-  [CHAT]: chatPage,
-  [CHANGE_PASSWORD]: changePasswordPage,
-  [REGISTER]: registrationPage,
+  [LOGIN]: render('.app', PageLogin),
+  [PROFILE]: render('.app', PageUserProfile),
+  [NOT_FOUND]: render('.app', PageNotFound),
+  [ERROR]: render('.app', PageErorr),
+  // [CHAT]: chatPage,
+  [CHANGE_PASSWORD]: render('.app', PageChangePassword),
+  [REGISTER]: render('.app', PageRegistration)
 };
 
-const app = document.getElementById("app");
+const app = document.getElementById('app');
 app.innerHTML = routes[window.location.pathname]?.();

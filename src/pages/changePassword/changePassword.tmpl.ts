@@ -1,22 +1,21 @@
-    {{!-- <img src="{{{imageSrc}}}" alt="avatar"> --}}
+const template = `{{!-- <img src="{{{imageSrc}}}" alt="avatar"> --}}
        <form class="form">
         <h1 class='login-title'>{{title}}</h1>
         <label class="label-text" for="oldPassword"> 
             Старый пароль
-         {{> input name="old_password" placeholder="Старый пароль" type="password" }} 
+         {{{inputOldPassword}}}
         </label>
         <label class="label-text" for="newPassword">
             Новый пароль
-            {{> input name="password" placeholder="Новый пароль" type="password" }}
+            {{{inputNewPassword}}}
         </label>
         <label class="label-text" for="passwordConfirm">
             Повторите новый пароль
-             {{> input name="repeat_password" placeholder="Повторите новый пароль" type="password" }}
-        </label>
-                     
-        
+             {{{inputRepeatNewPassword}}}
+        </label> 
     </div>
     <div class='button-wrapper'>
-    {{> button }}
+    {{{button }}}
     </div>
-    </form>
+    </form>`;
+export default template;

@@ -1,13 +1,36 @@
-import template from './error.hbs';
+import template from './error.tmpl.ts';
 import './error.css';
+import Block from '../../utils/Block';
 
-export default () => {
-  const data = {
-    status: '404',
-    title: 'Страница не найдена',
-    goBackLink: 'Назад к чатам',
-  };
+// const data = {
+// status: '404',
+// title: 'Страница не найдена',
+// goBackLink: 'Назад к чатам',
+// };
+class ErrorNew extends Block {
+  render() {
+    return this.compile(template, {
+      status: this.props.status,
+      title: this.props.title,
+      goBackLink: this.props.goBackLink,
+    });
+  }
+}
 
-  const html = template(data);
-  return html;
-};
+const PageNotFound = new ErrorNew('div', {
+  status: '404',
+  title: 'Страница не найдена',
+  goBackLink: 'Назад к чатам',
+});
+export default PageNotFound;
+
+// export default () => {
+//   const data = {
+//     status: '404',
+//     title: 'Страница не найдена',
+//     goBackLink: 'Назад к чатам',
+//   };
+
+//   const html = template(data);
+//   return html;
+// };

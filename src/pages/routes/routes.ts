@@ -7,7 +7,7 @@ import {
   REGISTER,
   NOT_FOUND,
   ERROR,
-  CHAT,
+  // CHAT,
   PROFILE,
   CHANGE_PASSWORD,
 } from '../../modules/routes';
@@ -20,7 +20,7 @@ export default () => {
       { title: 'Register', url: REGISTER },
       { title: 'Not Found', url: NOT_FOUND },
       { title: 'Error', url: ERROR },
-      { title: 'Chat', url: CHAT },
+      // { title: 'Chat', url: CHAT },
       { title: 'Pofile', url: PROFILE },
       { title: 'Change Password', url: CHANGE_PASSWORD },
     ],

@@ -1,38 +1,38 @@
-     <main class="container">
+const template = `<main class="container">
         <div class="user_data">
             <button class="button-change">
                 Поменять аватар
             </button>
             <img class="photo" src="{{imageSrc}}" alt="avatar" />
-            <p class="name">{{first_name}}</p>
+            <p class="name">{{firstName}}</p>
             <button class="exit">Выйти</button>
         </div>
-        <form class="form_profile>
+        <form class="form_profile">
             <div class="wrapper">
             <label class="label-profile" for="email">
             Почта
-            {{> text name="Почта" currentValue="pochta@gmail.ru" fieldName="email" }}
+            {{{textEmail}}}
         </label>
         </div>
             <label class="label-profile" for="login">
             Логин
-             {{> text name="Логин" currentValue="ivanivanov" fieldName="login" }}
+             {{{textLogin}}}
         </label>
         <label class="label-profile" for="first_name">
             Имя
-             {{> text name="Имя" currentValue="Иван" fieldName="first_name" }}
+             {{{textName}}}
         </label>  
          <label class="label-profile" for="second_name">
             Фамилия
-            {{> text name="Фамилия" currentValue="Иванов" fieldName="second_name" }}
+            {{{textSecondName}}}
         </label>
         <label class="label-profile" for="display_name">
             Имя в чате
-            {{> text name="Имя в чате" currentValue="Иван" fieldName="display_name" }}
+            {{{textChatName}}}
         </label>
         <label class="label-profile" for="phone">
             Телефон
-            {{> text name="Телефон" currentValue="7(903)-967-30-30" fieldName="phone" }}
+            {{{textPhone}}}
         </label>
             
 
@@ -42,8 +42,7 @@
             </div>
         </form>
        <div class='button-wrapper'>
-           {{> button }}
+           {{{ button }}}
         </div>
-        </main>
-
-    
+        </main>`;
+export default template;

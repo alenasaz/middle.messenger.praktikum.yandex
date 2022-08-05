@@ -1,14 +1,23 @@
-import template from './login.hbs';
+import template from './login.tmpl.ts';
 import './login.css';
-import '../../components/button/button';
-import '../../components/input/input';
+// import '../../components/input/input';
+import Block from '../../utils/Block';
+import Button from '../../components/button/button.ts';
+import Input from '../../components/input/input';
 
-export default () => {
-  const data = {
-    title: 'Вход',
-    buttonText: 'Авторизоваться',
-  };
+class Login extends Block {
+  render() {
+    return this.compile(template, {
+      title: this.props.title,
+    });
+  }
+}
 
-  const html = template(data);
-  return html;
-};
+const PageLogin = new Login('div', {
+  title: 'Вход',
+  button: new Button('div', { buttonText: 'Авторизоваться' }),
+  inputPassword: new Input('div', { name: 'password', placeholder: 'Пароль', type: 'password' }),
+  inputLogin: new Input('div', { name: 'login', placeholder: 'Логин', type: 'text' })
+});
+
+export default PageLogin;
