@@ -1,4 +1,4 @@
-<h1>Routes</h1>
+const template = `<h1>Routes</h1>
 <div class="links">
     <ul>
         {{#each pages}}
@@ -7,4 +7,5 @@
         </li>
         {{/each}}
     </ul>
-</div>
+</div>`;
+export default template;

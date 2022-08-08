@@ -1,4 +1,4 @@
-<div class="messages-layout">
+const template = `<div class="messages-layout">
     {{{header}}}
     <section>
         <ul class='messages'>
@@ -10,4 +10,5 @@
         </ul>
         {{{footer}}}
     </section>
-</div>
+</div>`;
+export default template;

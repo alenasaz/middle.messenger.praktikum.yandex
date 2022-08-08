@@ -1,4 +1,4 @@
-const template = `<form class="form">
+const template = `<form class="form" action={{events}}>
     <h1 class='login-title'>{{title}}</h1>
     <label class="label-text" for="email">Почта</label>
     {{{inputEmail}}}

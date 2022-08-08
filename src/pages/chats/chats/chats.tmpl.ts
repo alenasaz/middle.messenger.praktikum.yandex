@@ -1,4 +1,4 @@
-{{{header}}}
+const template = `{{{header}}}
 <ul class="chats">
   {{#each chats}}
     <li class="chat">
@@ -10,4 +10,5 @@
       </div>
     </li>
   {{/each}}
-</ul>
+</ul>`;
+export default template;

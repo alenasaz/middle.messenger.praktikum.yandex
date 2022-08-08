@@ -1,4 +1,5 @@
-<footer class="messages-footer">
+/* eslint-disable max-len */
+const template = `<footer class="messages-footer">
     <button class="messages-footer__attache-files">
         <img src="{{attachFiles}}" class="messages-footer__attache-files-icon" alt="attache files icon">
     </button>
@@ -6,4 +7,5 @@
     <button class="messages-footer__send-message">
         <img src="{{sendMessage}}" class="messages-footer__send-message-icon" alt="send message icon">
     </button>
-</footer>
+</footer>`;
+export default template;

@@ -1,2 +1,2 @@
-const template = `<button class='button-primary'>{{buttonText}}</button>`;
+const template = `<button class='button-primary' type='submit'>{{buttonText}}</button>`;
 export default template;

@@ -5,7 +5,7 @@ import Block from '../../utils/Block';
 
 export default class Input extends Block {
   render() {
-    return this.compile(template, { name: this.props.name, placeholder: this.props.placeholder, type: this.props.type });
+    return this.compile(template, { name: this.props.name, placeholder: this.props.placeholder, type: this.props.type, onblur: this.props.events });
   }
 }
 

@@ -1,5 +1,5 @@
 const template = `{{!-- <img src="{{{imageSrc}}}" alt="avatar"> --}}
-       <form class="form">
+       <form class="form" action={{events}}>
         <h1 class='login-title'>{{title}}</h1>
         <label class="label-text" for="oldPassword"> 
             Старый пароль

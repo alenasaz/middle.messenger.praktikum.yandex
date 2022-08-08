@@ -1,31 +1,45 @@
-import template from './routes.hbs';
+import template from './routes.tmpl.ts';
 import './routes.css';
-
+import Block from '../../utils/Block';
 import {
   ROUTES_PAGE,
   LOGIN,
   REGISTER,
   NOT_FOUND,
   ERROR,
-  // CHAT,
+  CHAT,
   PROFILE,
   CHANGE_PASSWORD,
 } from '../../modules/routes';
 
-export default () => {
-  const data = {
-    pages: [
-      { title: 'Routes', url: ROUTES_PAGE },
-      { title: 'Login', url: LOGIN },
-      { title: 'Register', url: REGISTER },
-      { title: 'Not Found', url: NOT_FOUND },
-      { title: 'Error', url: ERROR },
-      // { title: 'Chat', url: CHAT },
-      { title: 'Pofile', url: PROFILE },
-      { title: 'Change Password', url: CHANGE_PASSWORD },
-    ],
-  };
+class Routes extends Block {
+  render() {
+    return this.compile(template, {
+      pages: this.props.pages,
+    });
+  }
+}
 
-  const html = template(data);
-  return html;
-};
+const PageRoutes = new Routes('div', {
+  pages: [
+    { title: 'Routes', url: ROUTES_PAGE },
+    { title: 'Login', url: LOGIN },
+    { title: 'Register', url: REGISTER },
+    { title: 'Not Found', url: NOT_FOUND },
+    { title: 'Error', url: ERROR },
+    { title: 'Chat', url: CHAT },
+    { title: 'Pofile', url: PROFILE },
+    { title: 'Change Password', url: CHANGE_PASSWORD },
+  ],
+});
+
+export default PageRoutes;
+
+// export default () => {
+//   const data = {
+//     pages: ,
+//   };
+
+//   const html = template(data);
+//   return html;
+// };

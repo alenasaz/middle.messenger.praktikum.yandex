@@ -1,33 +1,43 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-undef */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import {
   ROUTES_PAGE,
   LOGIN,
   REGISTER,
   ERROR,
   NOT_FOUND,
-  // CHAT,
+  CHAT,
   PROFILE,
   CHANGE_PASSWORD,
 } from './modules/routes';
 import render from './utils/RenderDom';
-import routesPage from './pages/routes/routes';
-import PageLogin from './pages/login/login.ts';
-import PageNotFound from './pages/error/notFound.ts';
-import PageErorr from './pages/error/error.ts';
-// import chatPage from "./pages/chats/chatPage";
-import PageChangePassword from './pages/changePassword/changePassword.ts';
-import PageUserProfile from "./pages/userProfile/userProfile.ts";
-import PageRegistration from "./pages/registration/registration.ts";
+import PageRoutes from './pages/routes/routes';
+import PageLogin from './pages/login/login';
+import PageNotFound from './pages/error/notFound';
+import PageErorr from './pages/error/error';
+import PageChat from './pages/chats/chatPage';
+import PageChangePassword from './pages/changePassword/changePassword';
+import PageUserProfile from './pages/userProfile/userProfile';
+import PageRegistration from './pages/registration/registration';
 
 const routes = {
-  [ROUTES_PAGE]: routesPage,
-  [LOGIN]: render('.app', PageLogin),
-  [PROFILE]: render('.app', PageUserProfile),
-  [NOT_FOUND]: render('.app', PageNotFound),
-  [ERROR]: render('.app', PageErorr),
-  // [CHAT]: chatPage,
-  [CHANGE_PASSWORD]: render('.app', PageChangePassword),
-  [REGISTER]: render('.app', PageRegistration)
+  [ROUTES_PAGE]: PageRoutes,
+  [LOGIN]: PageLogin,
+  [PROFILE]: PageUserProfile,
+  [NOT_FOUND]: PageNotFound,
+  [ERROR]: PageErorr,
+  [CHAT]: PageChat,
+  [CHANGE_PASSWORD]: PageChangePassword,
+  [REGISTER]: PageRegistration,
 };
 
-const app = document.getElementById('app');
-app.innerHTML = routes[window.location.pathname]?.();
+for (const [key, value] of Object.entries(routes)) {
+  if (window.location.pathname === key) {
+    render('.app', value);
+  }
+}
+
+// const app = document.getElementById('app');
+// app.innerHTML = routes[window.location.pathname]?.();

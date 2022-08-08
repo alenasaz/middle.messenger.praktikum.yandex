@@ -1,38 +1,45 @@
-const METHODS = {
-  GET: 'GET',
-  POST: 'POST',
-  PUT: 'PUT',
-  DELETE: 'DELETE',
-};
-
-/**
+/* eslint-disable no-unused-vars */
+class HTTPTransport {
+  METHODS = {
+    GET: 'GET',
+    POST: 'POST',
+    PUT: 'PUT',
+    DELETE: 'DELETE',
+  };
+ 
+  /**
 * Функцию реализовывать здесь необязательно, но может помочь не плодить логику у GET-метода
 * На входе: объект. Пример: {a: 1, b: 2, c: {d: 123}, k: [1, 2, 3]}
 * На выходе: строка. Пример: ?a=1&b=2&c=[object Object]&k=1,2,3
 */
-function queryStringify(data) {
-// Можно делать трансформацию GET-параметров в отдельной функции
-  let query = '?';
-  const keys = Object.keys(data);
-  for (const key of keys) {
-    const element = data[key] instanceof Array ? data[key].join(',') : data[key];
-    query += `${key}=${element}&`;
+  queryStringify(data: object) {
+    // Можно делать трансформацию GET-параметров в отдельной функции
+    let query = '?';
+    const keys = Object.keys(data);
+    for (const key of keys) {
+      const element = data[key] instanceof Array ? data[key].join(',') : data[key];
+      query += `${key}=${element}&`;
+    }
+
+    return query === '?' ? '' : query.slice(0, -1);
   }
 
-  return query === '?' ? '' : query.slice(0, -1);
-}
-
-class HTTPTransport {
-  get = (url, options = {}) => {
-    const query = options.data ? queryStringify(options.data) : '';
-    return this.request(url + query, { ...options, method: METHODS.GET }, options.timeout);
+  get = (url: string, options = {}) => {
+    const query = options.data ? this.queryStringify(options.data) : '';
+    return this.request(url + query, { ...options, method: this.METHODS.GET }, options.timeout);
   };
 
-  put = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  put = (url: string, options = {}) => {
+    this.request(url, { ...options, method: this.METHODS.PUT }, options.timeout);
+  };
 
-  post = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  post = (url: string, options = {}) => {
+    this.request(url, { ...options, method: this.METHODS.POST }, options.timeout);
+  };
 
-  delete = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  delete = (url: string, options = {}) => {
+    this.request(url, { ...options, method: this.METHODS.DELETE }, options.timeout);
+  };
 
   // options:
   // headers — obj
@@ -44,7 +51,7 @@ class HTTPTransport {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
 
-      xhr.onload = function () {
+      xhr.onload = () => {
         resolve(xhr);
       };
 
@@ -52,7 +59,7 @@ class HTTPTransport {
       xhr.onerror = reject;
       xhr.ontimeout = reject;
 
-      if (method === METHODS.GET || !data) {
+      if (method === this.METHODS.GET || !data) {
         xhr.send();
       } else {
         xhr.send(data);

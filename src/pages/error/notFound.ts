@@ -1,4 +1,6 @@
-import template from './error.tmpl.ts';
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+import template from './error.tmpl';
 import './error.css';
 import Block from '../../utils/Block';
 
