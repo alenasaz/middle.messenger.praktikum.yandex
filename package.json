@@ -8,7 +8,10 @@
     },
     "scripts": {
         "dev": "parcel index.html",
-        "build": "parcel build index.html"
+        "build:parcel": "parcel build ./index.html --public-url ./ --no-source-maps",
+        "build": "npm run clean && npm run build:parcel",
+        "start": "npm run build && node ./server.js",
+        "clean": "rm -rf dist/*"
     },
     "targets": {
         "web": {
@@ -21,14 +24,14 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@parcel/transformer-css": "2.6.2",
         "handlebars": "4.7.7",
         "postcss": "8.4.14",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
-        "@parcel/transformer-sass": "2.6.2",
+        "@parcel/transformer-sass": "2.7.0",
         "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@parcel/transformer-css": "2.7.0",
         "@typescript-eslint/parser": "^5.31.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^8.20.0",
@@ -36,7 +39,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
         "express": "4.18.1",
-        "parcel": "2.6.2",
+        "parcel": "2.7.0",
         "parcel-transformer-hbs": "1.0.4",
         "stylelint": "^14.9.1",
         "ts-node": "10.9.1",
