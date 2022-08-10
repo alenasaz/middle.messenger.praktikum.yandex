@@ -6,6 +6,7 @@ import Block from '../../utils/Block';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Validation from '../../utils/Validation';
+import '../../colors.css';
 
 const validation = new Validation();
 
@@ -25,11 +26,14 @@ const PageChangePassword = new ChangePassword('div', {
     name: 'old_password',
     placeholder: 'Старый пароль',
     type: 'password',
+    id: 'old_password',
     events: {
       blur: (event) => {
         if (event.target.name === 'old_password') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'old_password');
+          } else {
+            validation.hideError(event.target, 'old_password');
           }
         }
       },
@@ -39,11 +43,14 @@ const PageChangePassword = new ChangePassword('div', {
     name: 'password',
     placeholder: 'Новый пароль',
     type: 'password',
+    id: 'password_change',
     events: {
       blur: (event) => {
         if (event.target.name === 'password') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'password_change');
+          } else {
+            validation.hideError(event.target, 'password_change');
           }
         }
       },
@@ -53,11 +60,14 @@ const PageChangePassword = new ChangePassword('div', {
     name: 'repeat_password',
     placeholder: 'Повторите новый пароль',
     type: 'password',
+    id: 'repeat_password',
     events: {
       blur: (event) => {
         if (event.target.name === 'repeat_password') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'repeat_password');
+          } else {
+            validation.hideError(event.target, 'repeat_password');
           }
         }
       },
@@ -79,12 +89,3 @@ const PageChangePassword = new ChangePassword('div', {
 });
 
 export default PageChangePassword;
-
-// export default () => {
-//   const data = {
-//     buttonText: 'Сохранить',
-//     title: 'Изменить пароль',
-//   };
-//   const html = template(data);
-//   return html;
-// };

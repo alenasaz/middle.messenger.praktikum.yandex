@@ -1,8 +1,9 @@
-import template from './userProfile.tmpl.ts';
+import template from './userProfile.tmpl';
 import './userProfile.css';
 import Block from '../../utils/Block';
 import Button from '../../components/button/button';
 import Text from '../../components/text/text';
+import '../../colors.css';
 
 class UserProfile extends Block {
   render() {
@@ -25,12 +26,3 @@ const PageUserProfile = new UserProfile('div', {
 });
 
 export default PageUserProfile;
-
-// export default () => {
-//   const data = {
-//     buttonText: 'Сохранить',
-//     imageSrc: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2',
-//   };
-//   const html = template(data);
-//   return html;
-// };

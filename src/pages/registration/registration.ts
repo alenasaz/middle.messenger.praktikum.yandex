@@ -6,6 +6,7 @@ import Block from '../../utils/Block';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Validation from '../../utils/Validation';
+import '../../colors.css';
 
 const validation = new Validation();
 
@@ -25,11 +26,14 @@ const PageRegistration = new Registration('div', {
     name: 'email',
     placeholder: 'Почта',
     type: 'email',
+    id: 'email',
     events: {
       blur: (event) => {
         if (event.target.name === 'email') {
           if (!validation.checkEmail(event.target.value)) {
-            console.log('ошибка эмейл');
+            validation.showError(event.target, 'email');
+          } else {
+            validation.hideError(event.target, 'email');
           }
         }
       },
@@ -39,11 +43,14 @@ const PageRegistration = new Registration('div', {
     name: 'login',
     placeholder: 'Логин',
     type: 'text',
+    id: 'login_registration',
     events: {
       blur: (event) => {
         if (event.target.name === 'login') {
           if (!validation.checkLogin(event.target.value)) {
-            console.log('ошибка логина');
+            validation.showError(event.target, 'login_registration');
+          } else {
+            validation.hideError(event.target, 'login_registration');
           }
         }
       },
@@ -53,11 +60,14 @@ const PageRegistration = new Registration('div', {
     name: 'first_name',
     placeholder: 'Имя',
     type: 'text',
+    id: 'first_name',
     events: {
       blur: (event) => {
         if (event.target.name === 'first_name') {
           if (!validation.checkName(event.target.value)) {
-            console.log('ошибка имя');
+            validation.showError(event.target, 'first_name');
+          } else {
+            validation.hideError(event.target, 'first_name');
           }
         }
       },
@@ -67,11 +77,14 @@ const PageRegistration = new Registration('div', {
     name: 'phone',
     placeholder: 'Телефон',
     type: 'text',
+    id: 'phone',
     events: {
       blur: (event) => {
         if (event.target.name === 'phone') {
           if (!validation.checkPhone(event.target.value)) {
-            console.log('ошибка телефон');
+            validation.showError(event.target, 'phone');
+          } else {
+            validation.hideError(event.target, 'phone');
           }
         }
       },
@@ -81,11 +94,14 @@ const PageRegistration = new Registration('div', {
     name: 'second_name',
     placeholder: 'Фамилия',
     type: 'text',
+    id: 'second_name',
     events: {
       blur: (event) => {
         if (event.target.name === 'second_name') {
           if (!validation.checkName(event.target.value)) {
-            console.log('ошибка фамилии');
+            validation.showError(event.target, 'second_name');
+          } else {
+            validation.hideError(event.target, 'second_name');
           }
         }
       },
@@ -95,11 +111,14 @@ const PageRegistration = new Registration('div', {
     name: 'password',
     placeholder: 'Пароль',
     type: 'password',
+    id: 'password_registration',
     events: {
       blur: (event) => {
         if (event.target.name === 'password') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'password_registration');
+          } else {
+            validation.hideError(event.target, 'password_registration');
           }
         }
       },
@@ -109,18 +128,20 @@ const PageRegistration = new Registration('div', {
     name: 'password_repeat',
     placeholder: 'Пароль (ещё раз)',
     type: 'password',
+    id: 'password_repeat_registration',
     events: {
       blur: (event) => {
         if (event.target.name === 'password_repeat') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'password_repeat_registration');
+          } else {
+            validation.hideError(event.target, 'password_repeat_registration');
           }
         }
       },
     },
   }),
   events: {
-    // вывожу данные в консоль при нажатии на кнопку
     submit: (event) => {
       event.preventDefault();
       const inputFields = event.target.querySelectorAll('input');
@@ -165,14 +186,3 @@ const PageRegistration = new Registration('div', {
 });
 
 export default PageRegistration;
-
-// export default () => {
-//   const data = {
-//     title: 'Регистрация',
-//     buttonText: 'Зарегистировать',
-//     buttonSecondaryText: 'Войти',
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

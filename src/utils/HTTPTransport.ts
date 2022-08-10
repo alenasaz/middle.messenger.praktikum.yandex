@@ -1,44 +1,29 @@
 /* eslint-disable no-unused-vars */
+import queryStringify from "./queryStringify";
+
+enum METHODS {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
+}
+
 class HTTPTransport {
-  METHODS = {
-    GET: 'GET',
-    POST: 'POST',
-    PUT: 'PUT',
-    DELETE: 'DELETE',
-  };
- 
-  /**
-* Функцию реализовывать здесь необязательно, но может помочь не плодить логику у GET-метода
-* На входе: объект. Пример: {a: 1, b: 2, c: {d: 123}, k: [1, 2, 3]}
-* На выходе: строка. Пример: ?a=1&b=2&c=[object Object]&k=1,2,3
-*/
-  queryStringify(data: object) {
-    // Можно делать трансформацию GET-параметров в отдельной функции
-    let query = '?';
-    const keys = Object.keys(data);
-    for (const key of keys) {
-      const element = data[key] instanceof Array ? data[key].join(',') : data[key];
-      query += `${key}=${element}&`;
-    }
-
-    return query === '?' ? '' : query.slice(0, -1);
-  }
-
   get = (url: string, options = {}) => {
-    const query = options.data ? this.queryStringify(options.data) : '';
-    return this.request(url + query, { ...options, method: this.METHODS.GET }, options.timeout);
+    const query = options.data ? queryStringify(options.data) : '';
+    return this.request(url + query, { ...options, method: METHODS.GET }, options.timeout);
   };
 
   put = (url: string, options = {}) => {
-    this.request(url, { ...options, method: this.METHODS.PUT }, options.timeout);
+    this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
   };
 
   post = (url: string, options = {}) => {
-    this.request(url, { ...options, method: this.METHODS.POST }, options.timeout);
+    this.request(url, { ...options, method: METHODS.POST }, options.timeout);
   };
 
   delete = (url: string, options = {}) => {
-    this.request(url, { ...options, method: this.METHODS.DELETE }, options.timeout);
+    this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
   };
 
   // options:
@@ -59,7 +44,7 @@ class HTTPTransport {
       xhr.onerror = reject;
       xhr.ontimeout = reject;
 
-      if (method === this.METHODS.GET || !data) {
+      if (method === METHODS.GET || !data) {
         xhr.send();
       } else {
         xhr.send(data);

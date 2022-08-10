@@ -5,6 +5,7 @@ import './chatPage.css';
 import MessagesComponent from './messages/messages';
 import ChatComponent from './chats/chats';
 import Block from '../../utils/Block';
+import '../../colors.css';
 
 class Chat extends Block {
   render() {
@@ -22,12 +23,3 @@ const PageChat = new Chat('div', {
 
 export default PageChat;
 
-// export default () => {
-//   const data = {
-//     chats: chats(),
-//     messages: messages(),
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

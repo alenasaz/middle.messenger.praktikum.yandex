@@ -15,6 +15,6 @@
   height: 100%;
 }
 .main__theme {
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--theme-color);
   border-radius: 5px;
 }

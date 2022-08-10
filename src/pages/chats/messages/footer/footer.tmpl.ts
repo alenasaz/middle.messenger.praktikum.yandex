@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const template = `<footer class="messages-footer">
     <button class="messages-footer__attache-files">
         <img src="{{attachFiles}}" class="messages-footer__attache-files-icon" alt="attache files icon">

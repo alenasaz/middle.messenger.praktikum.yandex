@@ -5,6 +5,7 @@ import './footer.css';
 import attach from '../../../../../public/paperclip-solid.svg';
 import arrowRight from '../../../../../public/arrow-right-solid.svg';
 import Block from '../../../../utils/Block';
+import '../../../../colors.css';
 
 class Footer extends Block {
   render() {
@@ -23,13 +24,4 @@ const FooterComponent = new Footer('div', {
 });
 
 export default FooterComponent;
-// export default () => {
-//   const data = {
-//     placeholder: 'Сообщение',
-//     attachFiles: attach,
-//     sendMessage: arrowRight,
-//   };
 
-//   const html = template(data);
-//   return html;
-// };

@@ -4,6 +4,7 @@ import template from './chats.tmpl';
 import './chats.css';
 import SearchHeaderComponent from '../searchHeader/searchHeader';
 import Block from '../../../utils/Block';
+import '../../../colors.css';
 
 class Chat extends Block {
   render() {
@@ -57,8 +58,3 @@ const ChatComponent = new Chat('div', {
 });
 
 export default ChatComponent;
-
-// export default () => {
-//   const html = template(data);
-//   return html;
-// };

@@ -30,7 +30,7 @@
 
 .messages-header__person-status {
   font-size: 12px;
-  color: grey;
+  color: var(--grey-color);
 }
 
 .messages-header__menu {

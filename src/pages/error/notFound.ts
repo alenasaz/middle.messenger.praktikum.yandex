@@ -4,11 +4,6 @@ import template from './error.tmpl';
 import './error.css';
 import Block from '../../utils/Block';
 
-// const data = {
-// status: '404',
-// title: 'Страница не найдена',
-// goBackLink: 'Назад к чатам',
-// };
 class ErrorNew extends Block {
   render() {
     return this.compile(template, {
@@ -25,14 +20,3 @@ const PageNotFound = new ErrorNew('div', {
   goBackLink: 'Назад к чатам',
 });
 export default PageNotFound;
-
-// export default () => {
-//   const data = {
-//     status: '404',
-//     title: 'Страница не найдена',
-//     goBackLink: 'Назад к чатам',
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

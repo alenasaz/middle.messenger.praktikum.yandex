@@ -37,26 +37,3 @@ const MessagesComponent = new Messages('div', {
 
 export default MessagesComponent;
 
-// export default () => {
-//   const data = {
-//     header: header(),
-//     footer: footer(),
-//     messages: [
-//       {
-//         author: 'Андрей',
-//         text: 'О-ля-ля, какие люди',
-//       },
-//       {
-//         author: null,
-//         text: 'Привет!',
-//       },
-//       {
-//         author: 'Андрей',
-//         text: 'Привет!',
-//       },
-//     ],
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

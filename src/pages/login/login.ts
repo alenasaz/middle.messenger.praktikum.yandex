@@ -7,6 +7,7 @@ import Block from '../../utils/Block';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import Validation from '../../utils/Validation';
+import '../../colors.css';
 
 const validation = new Validation();
 
@@ -24,13 +25,16 @@ const PageLogin = new Login('div', {
   button: new Button('div', { buttonText: 'Авторизоваться' }),
   inputPassword: new Input('div', {
     name: 'password',
+    id: 'password_login',
     placeholder: 'Пароль',
     type: 'password',
     events: {
       blur: (event) => {
         if (event.target.name === 'password') {
           if (!validation.checkPassword(event.target.value)) {
-            console.log('ошибка пароля');
+            validation.showError(event.target, 'password_login');
+          } else {
+            validation.hideError(event.target, 'password_login');
           }
         }
       },
@@ -40,18 +44,20 @@ const PageLogin = new Login('div', {
     name: 'login',
     placeholder: 'Логин',
     type: 'text',
+    id: 'login_login',
     events: {
       blur: (event) => {
         if (event.target.name === 'login') {
           if (!validation.checkLogin(event.target.value)) {
-            console.log('ошибка логина');
+            validation.showError(event.target, 'login_login');
+          } else {
+            validation.hideError(event.target, 'login_login');
           }
         }
       },
     },
   }),
   events: {
-    // вывожу данные в консоль при нажатии на к
     submit: (event) => {
       event.preventDefault();
       const inputFields = event.target.querySelectorAll('input');

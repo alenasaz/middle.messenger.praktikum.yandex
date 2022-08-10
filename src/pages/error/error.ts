@@ -4,11 +4,6 @@ import template from './error.tmpl';
 import './error.css';
 import Block from '../../utils/Block';
 
-// const data = {
-//   status: '500',
-//   title: 'Ошибка сервера',
-//   goBackLink: 'Назад к чатам',
-// };
 class Error extends Block {
   render() {
     return this.compile(template, {
@@ -25,14 +20,3 @@ const PageErorr = new Error('div', {
   goBackLink: 'Назад к чатам',
 });
 export default PageErorr;
-
-// export default () => {
-//   const data = {
-//     status: '500',
-//     title: 'Ошибка сервера',
-//     goBackLink: 'Назад к чатам',
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

@@ -48,7 +48,7 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildren(propsAndChildren) {
+  private _getChildren(propsAndChildren) {
     const children = {};
     const props = {};
 
@@ -63,14 +63,14 @@ class Block {
     return { children, props };
   }
 
-  _registerEvents(eventBus): void {
+  private _registerEvents(eventBus): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
   }
 
-  _createResources(): void {
+  private _createResources(): void {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
@@ -81,7 +81,7 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  _componentDidMount(): void {
+  private _componentDidMount(): void {
     this.componentDidMount();
 
     Object.values(this.children).forEach((child) => {
@@ -95,7 +95,7 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidUpdate(oldProps, newProps): void {
+  private _componentDidUpdate(oldProps, newProps): void {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (response) {
       this._render();
@@ -106,7 +106,7 @@ class Block {
     return true;
   }
 
-  _addEvents() {
+  private _addEvents() {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach((eventName) => {
@@ -121,7 +121,7 @@ class Block {
     });
   }
 
-  _addAttributes() {
+  private _addAttributes() {
     const { attr = {} } = this.props;
 
     Object.keys(attr).forEach((attrName) => {
@@ -129,7 +129,7 @@ class Block {
     });
   }
 
-  _removeEvents() {
+  private _removeEvents() {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach((eventName) => {
@@ -156,7 +156,7 @@ class Block {
     return this._element;
   }
 
-  _render() : void {
+  private _render() : void {
     const block = this.render();
     this._removeEvents();
     this._element.innerHTML = '';
@@ -174,14 +174,12 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props) {
-    const self = this;
-
-    return new Proxy(props, {
+  private _makePropsProxy = (props) => {
+    const proxyVar = new Proxy(props, {
       set(target, prop, value) {
         const tar = target;
         tar[prop] = value;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU);
         return true;
       },
       get(target, prop: string) {
@@ -196,7 +194,8 @@ class Block {
         throw new Error('Доступ отсутствует!');
       },
     });
-  }
+    return proxyVar;
+  };
 
   compile(template: string, props: object) {
     const propsAndStubs = { ...props };
@@ -215,7 +214,7 @@ class Block {
     return fragment.content;
   }
 
-  _createDocumentElement(tagName) {
+  private _createDocumentElement(tagName) {
     const element = document.createElement(tagName);
     if (this.props.settings?.withInternalID) {
       element.setAttribute('data-id', this._id);

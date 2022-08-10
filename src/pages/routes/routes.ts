@@ -11,6 +11,7 @@ import {
   PROFILE,
   CHANGE_PASSWORD,
 } from '../../modules/routes';
+import '../../colors.css';
 
 class Routes extends Block {
   render() {
@@ -34,12 +35,3 @@ const PageRoutes = new Routes('div', {
 });
 
 export default PageRoutes;
-
-// export default () => {
-//   const data = {
-//     pages: ,
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

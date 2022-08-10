@@ -18,12 +18,3 @@ const SearchHeaderComponent = new SearchHeader('div', {
 });
 
 export default SearchHeaderComponent;
-
-// export default () => {
-//   const data = {
-//     menuIcon: searchIcon,
-//   };
-
-//   const html = template(data);
-//   return html;
-// };

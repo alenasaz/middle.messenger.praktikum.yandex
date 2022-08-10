@@ -1,5 +1,5 @@
 .label-profile {
-  color: black;
+  color: var(--black-color);
   white-space: nowrap;
 }
 
@@ -41,7 +41,6 @@
   height: 132px;
   border-radius: 50%;
   border: none;
-  outline: none;
   background-color: transparent;
   background: none;
   transition: all 0.2s ease-in-out;
@@ -56,7 +55,7 @@
   cursor: pointer;
   z-index: 100;
   color: white;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--hover-color);
 }
 
 .name {
@@ -77,22 +76,21 @@
 
 .link {
   font-size: 13px;
-  color: blue;
+  color: var(--blue-color);
   padding: 5px;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 }
 .link:hover {
   cursor: pointer;
-  color: blue;
-  background-color: lightgray;
+  color: var(--blue-color);
+  background-color: var(--light-blue-color);
 }
 
 .exit {
-  color: #ff0000;
+  color: var(--red-color);
   border: none;
   margin: 5px auto;
-  outline: none;
   padding: 5px;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
@@ -101,12 +99,12 @@
 
 .exit:hover {
   cursor: pointer;
-  background-color: lightblue;
+  background-color: var(--light-grey-color);
   border-radius: 4px;
 }
 
 .button-wrapper {
-  margin-top: 10px !important;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

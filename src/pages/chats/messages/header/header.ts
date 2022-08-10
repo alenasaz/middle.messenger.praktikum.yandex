@@ -3,6 +3,7 @@
 import template from './header.tmpl';
 import './header.css';
 import Block from '../../../../utils/Block';
+import '../../../../colors.css';
 
 class Header extends Block {
   render() {
@@ -21,14 +22,3 @@ const HeaderComponent = new Header('div', {
 });
 
 export default HeaderComponent;
-
-// export default () => {
-//   const data = {
-//     avatar: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2',
-//     nickname: 'Вадим',
-//     status: 'В сети',
-//   };
-
-//   const html = template(data);
-//   return html;
-// };
