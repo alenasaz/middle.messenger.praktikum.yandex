@@ -1,20 +1,20 @@
 .wrapper__chats {
-    display: flex;
-    gap: 5px;
-    width: 100%;
+  display: flex;
+  gap: 5px;
+  width: 100%;
 }
 .container__messages {
-        width: 30%;
-        overflow: auto;
-        height: 100%;
+  width: 30%;
+  overflow: auto;
+  height: 100%;
 }
-    
- .wrapper__main {
-        flex: 1;
-        overflow: auto;
-        height: 100%;
-  }
-  .main__theme {
-    border: 1px solid #EAEAEA;
-    border-radius: 5px;
+
+.wrapper__main {
+  flex: 1;
+  overflow: auto;
+  height: 100%;
+}
+.main__theme {
+  border: 1px solid var(--theme-color);
+  border-radius: 5px;
 }

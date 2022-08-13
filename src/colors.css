@@ -1,0 +1,12 @@
+:root {
+  --blue-color: rgb(0, 0, 255);
+  --white-color: rgb(255, 255, 255);
+  --red-color: rgb(255, 0, 0);
+  --black-color: rgb(0, 0, 0);
+  --grey-color: rgb(128, 128, 128);
+  --shadow-color: rgba(0, 0, 0, 0.14);
+  --hover-color: rgba(0, 0, 0, 0.8);
+  --light-blue-color: rgb(173, 216, 230);
+  --light-grey-color: rgb(211, 211, 211);
+  --theme-color: rgb(234, 234, 234);
+}
