@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import template from './routes.tmpl.ts';
 import './routes.css';
 import Block from '../../utils/Block';
@@ -13,7 +15,15 @@ import {
 } from '../../modules/routes';
 import '../../colors.css';
 
+interface IRoutes {
+  pages?: Array<{}>;
+}
+
 class Routes extends Block {
+  constructor(props: IRoutes) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       pages: this.props.pages,
@@ -21,7 +31,7 @@ class Routes extends Block {
   }
 }
 
-const PageRoutes = new Routes('div', {
+const PageRoutes = new Routes({
   pages: [
     { title: 'Routes', url: ROUTES_PAGE },
     { title: 'Login', url: LOGIN },

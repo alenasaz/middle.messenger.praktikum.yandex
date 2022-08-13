@@ -4,7 +4,17 @@ import template from './error.tmpl';
 import './error.css';
 import Block from '../../utils/Block';
 
+interface IError {
+  status: string,
+  title: string,
+  goBackLink: string,
+}
+
 class Error extends Block {
+  constructor(props: IError) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       status: this.props.status,
@@ -14,7 +24,7 @@ class Error extends Block {
   }
 }
 
-const PageErorr = new Error('div', {
+const PageErorr = new Error({
   status: '500',
   title: 'Ошибка сервера',
   goBackLink: 'Назад к чатам',

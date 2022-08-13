@@ -5,7 +5,14 @@ import './searchHeader.css';
 import searchIcon from '../../../../public/magnifying-glass-solid.svg';
 import Block from '../../../utils/Block';
 
+interface ISearchHeader {
+  menuIcon: unknown;
+}
 class SearchHeader extends Block {
+  constructor(props: ISearchHeader) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       menuIcon: this.props.menuIcon,
@@ -13,7 +20,7 @@ class SearchHeader extends Block {
   }
 }
 
-const SearchHeaderComponent = new SearchHeader('div', {
+const SearchHeaderComponent = new SearchHeader({
   menuIcon: searchIcon,
 });
 

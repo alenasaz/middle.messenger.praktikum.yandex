@@ -10,7 +10,16 @@ import '../../colors.css';
 
 const validation = new Validation();
 
+interface IRegistration {
+  title: string;
+  events: { submit: (e: Event) => void };
+}
+
 class Registration extends Block {
+  constructor(props: IRegistration) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       title: this.props.title,
@@ -19,10 +28,10 @@ class Registration extends Block {
   }
 }
 
-const PageRegistration = new Registration('div', {
+const PageRegistration = new Registration({
   title: 'Регистрация',
-  button: new Button('div', { buttonText: 'Зарегистировать' }),
-  inputEmail: new Input('div', {
+  button: new Button({ buttonText: 'Зарегистировать' }),
+  inputEmail: new Input({
     name: 'email',
     placeholder: 'Почта',
     type: 'email',
@@ -39,7 +48,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputLogin: new Input('div', {
+  inputLogin: new Input({
     name: 'login',
     placeholder: 'Логин',
     type: 'text',
@@ -56,7 +65,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputName: new Input('div', {
+  inputName: new Input({
     name: 'first_name',
     placeholder: 'Имя',
     type: 'text',
@@ -73,7 +82,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputPhone: new Input('div', {
+  inputPhone: new Input({
     name: 'phone',
     placeholder: 'Телефон',
     type: 'text',
@@ -90,7 +99,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputSecondName: new Input('div', {
+  inputSecondName: new Input({
     name: 'second_name',
     placeholder: 'Фамилия',
     type: 'text',
@@ -107,7 +116,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputPassword: new Input('div', {
+  inputPassword: new Input({
     name: 'password',
     placeholder: 'Пароль',
     type: 'password',
@@ -124,7 +133,7 @@ const PageRegistration = new Registration('div', {
       },
     },
   }),
-  inputRepeatPassword: new Input('div', {
+  inputRepeatPassword: new Input({
     name: 'password_repeat',
     placeholder: 'Пароль (ещё раз)',
     type: 'password',

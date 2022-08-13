@@ -4,7 +4,17 @@ import template from './error.tmpl';
 import './error.css';
 import Block from '../../utils/Block';
 
+interface INotFound {
+  status: string,
+  title: string,
+  goBackLink: string,
+}
+
 class ErrorNew extends Block {
+  constructor(props: INotFound) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       status: this.props.status,
@@ -14,7 +24,7 @@ class ErrorNew extends Block {
   }
 }
 
-const PageNotFound = new ErrorNew('div', {
+const PageNotFound = new ErrorNew({
   status: '404',
   title: 'Страница не найдена',
   goBackLink: 'Назад к чатам',

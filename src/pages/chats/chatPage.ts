@@ -22,4 +22,3 @@ const PageChat = new Chat('div', {
 });
 
 export default PageChat;
-

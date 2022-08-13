@@ -11,7 +11,16 @@ import '../../colors.css';
 
 const validation = new Validation();
 
+interface ILogin {
+  title: string;
+  events: { submit: (e: Event) => void };
+}
+
 class Login extends Block {
+  constructor(props: ILogin) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       title: this.props.title,
@@ -20,10 +29,10 @@ class Login extends Block {
   }
 }
 
-const PageLogin = new Login('div', {
+const PageLogin = new Login({
   title: 'Вход',
-  button: new Button('div', { buttonText: 'Авторизоваться' }),
-  inputPassword: new Input('div', {
+  button: new Button({ buttonText: 'Авторизоваться' }),
+  inputPassword: new Input({
     name: 'password',
     id: 'password_login',
     placeholder: 'Пароль',
@@ -40,7 +49,7 @@ const PageLogin = new Login('div', {
       },
     },
   }),
-  inputLogin: new Input('div', {
+  inputLogin: new Input({
     name: 'login',
     placeholder: 'Логин',
     type: 'text',

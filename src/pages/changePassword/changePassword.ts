@@ -10,7 +10,16 @@ import '../../colors.css';
 
 const validation = new Validation();
 
+interface IChangePassword {
+  title?: string;
+  events: { submit: (e: Event) => void };
+}
+
 class ChangePassword extends Block {
+  constructor(props: IChangePassword) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       title: this.props.title,
@@ -19,10 +28,10 @@ class ChangePassword extends Block {
   }
 }
 
-const PageChangePassword = new ChangePassword('div', {
+const PageChangePassword = new ChangePassword({
   title: 'Изменить пароль',
-  button: new Button('div', { buttonText: 'Изменить пароль' }),
-  inputOldPassword: new Input('div', {
+  button: new Button({ buttonText: 'Изменить пароль' }),
+  inputOldPassword: new Input({
     name: 'old_password',
     placeholder: 'Старый пароль',
     type: 'password',
@@ -39,7 +48,7 @@ const PageChangePassword = new ChangePassword('div', {
       },
     },
   }),
-  inputNewPassword: new Input('div', {
+  inputNewPassword: new Input({
     name: 'password',
     placeholder: 'Новый пароль',
     type: 'password',
@@ -56,7 +65,7 @@ const PageChangePassword = new ChangePassword('div', {
       },
     },
   }),
-  inputRepeatNewPassword: new Input('div', {
+  inputRepeatNewPassword: new Input({
     name: 'repeat_password',
     placeholder: 'Повторите новый пароль',
     type: 'password',

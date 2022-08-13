@@ -6,7 +6,17 @@ import FooterComponent from './footer/footer';
 import HeaderComponent from './header/header';
 import Block from '../../../utils/Block';
 
+interface IMessages {
+  messages: Array<{}>;
+  header: unknown;
+  footer: unknown;
+}
+
 class Messages extends Block {
+  constructor(props: IMessages) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       header: this.props.header,
@@ -16,7 +26,7 @@ class Messages extends Block {
   }
 }
 
-const MessagesComponent = new Messages('div', {
+const MessagesComponent = new Messages({
   header: HeaderComponent,
   footer: FooterComponent,
   messages: [
@@ -36,4 +46,3 @@ const MessagesComponent = new Messages('div', {
 });
 
 export default MessagesComponent;
-

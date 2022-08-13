@@ -5,7 +5,17 @@ import './header.css';
 import Block from '../../../../utils/Block';
 import '../../../../colors.css';
 
+interface IHeader {
+  avatar: string;
+  nickname: string;
+  status: string;
+}
+
 class Header extends Block {
+  constructor(props: IHeader) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       avatar: this.props.avatar,
@@ -15,7 +25,7 @@ class Header extends Block {
   }
 }
 
-const HeaderComponent = new Header('div', {
+const HeaderComponent = new Header({
   avatar: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2',
   nickname: 'Вадим',
   status: 'В сети',

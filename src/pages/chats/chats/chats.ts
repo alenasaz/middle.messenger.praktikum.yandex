@@ -6,7 +6,16 @@ import SearchHeaderComponent from '../searchHeader/searchHeader';
 import Block from '../../../utils/Block';
 import '../../../colors.css';
 
+interface IChat {
+  chats: Array<{}>;
+  header: unknown;
+}
+
 class Chat extends Block {
+  constructor(props: IChat) {
+    super('div', props);
+  }
+
   render() {
     return this.compile(template, {
       chats: this.props.chats,
@@ -15,7 +24,7 @@ class Chat extends Block {
   }
 }
 
-const ChatComponent = new Chat('div', {
+const ChatComponent = new Chat({
   chats: [
     {
       chatName: 'Андрей',
