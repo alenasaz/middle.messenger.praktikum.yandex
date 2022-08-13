@@ -1,9 +1,7 @@
 class Validation {
   checkEmptyValue = (value: string): boolean => value !== '';
 
-  checkPassword = (value: string): boolean => {
-    /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,40}$/.test(value);
-  };
+  checkPassword = (value: string|number): boolean => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value);
 
   checkLength = (min: number, max: number, value: string): boolean => value.length >= min && value.length <= max;
 
