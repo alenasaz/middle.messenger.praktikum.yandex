@@ -5,7 +5,7 @@
 
 ## Использовалось
 
-Parcel, Netlify, Handlebars, Express.js
+Parcel, Netlify, Handlebars, Express.js, Typescript, Eslint, Stylelint
 
 ## Локально
 
